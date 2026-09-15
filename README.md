@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Le Pois Penché — website
 
-## Getting Started
+Bilingual (FR/EN) Next.js site for lepoispenche.com. Runs on Replit.
 
-First, run the development server:
+## Where things live
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| To change… | Edit |
+|---|---|
+| Any text on the site | `lib/content.ts` (French first, English below) |
+| A dish, a price, a menu section | `lib/menus.ts` |
+| Hours, address, phone, links (OpenTable, gift cards, socials, newsletter) | `lib/site.ts` |
+| Page titles and descriptions for Google | `lib/metadata.ts` |
+| A page's URL in French or English | `lib/routes.ts` |
+| Photos and their alt text | `lib/images.ts` (files in `public/images`) |
+| The pop-up announcement | `lib/content.ts` → `announcement.enabled = true` |
+| Redirects from old URLs | `next.config.ts` → `PAGES` table |
+
+Pages are in `components/pages/`. Shared pieces (header, footer, hero, forms) are in `components/`.
+
+## Adding a photo
+
+1. Drop the original in `../assets/photos/…` (outside the repo) and add a row in `scripts/optimize-images.mjs`.
+2. Run `npm run images`. A 2560px web version lands in `public/images/`.
+3. Reference it in `lib/images.ts` with a descriptive alt text in both languages.
+
+Photos should be landscape (16:9) with the subject centred so they crop well on phones.
+
+## Forms
+
+The private-dining and catering forms email through Resend. Set these Secrets on Replit:
+`RESEND_API_KEY`, `ENQUIRY_TO_PRIVATE`, `ENQUIRY_TO_CATERING`. Until they are set, the form opens the visitor's mail app instead.
+
+## Commands
+
+```
+npm run dev      # local development on http://localhost:3000
+npm run build    # production build (also writes sitemap.xml and robots.txt)
+npm start        # serve the production build
+npm run images   # regenerate web photos from the originals
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replit uses `npm run build` then `npm start` (see `.replit`).

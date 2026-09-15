@@ -1,0 +1,18 @@
+run = "npm start"
+entrypoint = "app/[lang]/page.tsx"
+modules = ["nodejs-20"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+build = ["sh", "-c", "npm ci && npm run build"]
+run = ["sh", "-c", "npm start"]
+deploymentTarget = "autoscale"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[env]
+NODE_ENV = "production"
