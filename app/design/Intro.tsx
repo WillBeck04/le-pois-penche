@@ -27,22 +27,22 @@ export default function Intro({ palette }: { palette: Palette }) {
 
   useEffect(() => {
     if (phase !== "typing") return;
-    if (count >= TEXT.length) { const t = setTimeout(() => setPhase("hold"), 380); return () => clearTimeout(t); }
+    if (count >= TEXT.length) { const t = setTimeout(() => setPhase("hold"), 220); return () => clearTimeout(t); }
     const ch = TEXT[count];
-    const delay = ch === " " ? 160 : 70 + Math.random() * 60;
+    const delay = ch === " " ? 90 : 34 + Math.random() * 30;
     const t = setTimeout(() => setCount((c) => c + 1), delay);
     return () => clearTimeout(t);
   }, [phase, count]);
 
   useEffect(() => {
     if (phase !== "hold") return;
-    const t = setTimeout(() => setPhase("leaving"), 650);
+    const t = setTimeout(() => setPhase("leaving"), 420);
     return () => clearTimeout(t);
   }, [phase]);
 
   useEffect(() => {
     if (phase !== "leaving") return;
-    const t = setTimeout(() => { setPhase("done"); document.body.style.overflow = ""; try { sessionStorage.setItem(KEY, "1"); } catch {} }, 1000);
+    const t = setTimeout(() => { setPhase("done"); document.body.style.overflow = ""; try { sessionStorage.setItem(KEY, "1"); } catch {} }, 800);
     return () => clearTimeout(t);
   }, [phase]);
 
@@ -58,7 +58,7 @@ export default function Intro({ palette }: { palette: Palette }) {
 
   const leaving = phase === "leaving";
   return (
-    <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 200, background: palette.bg, display: "flex", alignItems: "center", justifyContent: "center", transform: leaving ? "translateY(-100%)" : "none", transition: "transform 1s cubic-bezier(.76,0,.24,1)", cursor: "pointer" }}>
+    <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 200, background: palette.bg, display: "flex", alignItems: "center", justifyContent: "center", transform: leaving ? "translateY(-100%)" : "none", transition: "transform 0.8s cubic-bezier(.76,0,.24,1)", cursor: "pointer" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, opacity: leaving ? 0 : 1, transition: "opacity 0.5s" }}>
         <span style={{ fontFamily: palette.font, fontSize: "clamp(34px, 6vw, 84px)", fontWeight: 600, letterSpacing: "0.02em", color: palette.ink, lineHeight: 1, whiteSpace: "pre", display: "inline-flex", alignItems: "baseline" }}>
           {TEXT.slice(0, count)}
