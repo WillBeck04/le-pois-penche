@@ -13,7 +13,7 @@ const Frame = ({ title, children }: { title: string; children: React.ReactNode }
     {children}
   </section>
 );
-const slides = [img.salleRouge, img.facade, img.chefCrabe, img.barNuit, img.table];
+const slides = [img.facade, img.salleRouge, img.chefCrabe, img.barNuit, img.table];
 
 export default function D1() {
   return (
