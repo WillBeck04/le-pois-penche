@@ -12,8 +12,10 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // Short links for the design directions: /design1 … /design8
+      // Short links for the design directions: /test1 … /test8 (and /design1 … /design8)
+      { source: "/test:n(\\d)", destination: "/design/:n" },
       { source: "/design:n(\\d)", destination: "/design/:n" },
+      { source: "/test", destination: "/design" },
     ];
   },
   async redirects() {

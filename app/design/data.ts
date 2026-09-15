@@ -80,12 +80,12 @@ export const navShort = ["Menus", "Heures", "Histoire", "Événements", "Traiteu
 export const OPENTABLE = "https://www.opentable.ca/r/le-pois-penche-reservations-montreal?restref=25942&lang=fr-CA";
 
 export const designs = [
-  { n: 1, slug: "design1", name: "Grande Brasserie", tagline: "Le Rock's system with the brand burgundy. Cream, centred logo, framed menu card.", theme: "light" },
-  { n: 2, slug: "design2", name: "Belle Époque", tagline: "Cinzel capitals, gold hairlines, a printed carte. Paris 1900.", theme: "light" },
-  { n: 3, slug: "design3", name: "Nuit à Montréal", tagline: "Warm near-black, cream type, gold. The evening out.", theme: "dark" },
-  { n: 4, slug: "design4", name: "Carte Postale", tagline: "Editorial magazine. Cormorant italics, offset collages, numbered captions.", theme: "light" },
-  { n: 5, slug: "design5", name: "Zinc", tagline: "Brutally minimal. One giant wordmark, hairlines, photos left to breathe.", theme: "light" },
-  { n: 6, slug: "design6", name: "Rouge", tagline: "Colour-block poster. Burgundy ground, cream blocks, pure brand.", theme: "dark" },
-  { n: 7, slug: "design7", name: "Terrasse", tagline: "Bright summer in Montréal. Awning stripe, pill buttons, three service moments.", theme: "light" },
-  { n: 8, slug: "design8", name: "Vitrine", tagline: "Split screen. Pinned photo on the left that swaps as you scroll.", theme: "light" },
+  { n: 1, slug: "test1", name: "Grande Brasserie", tagline: "Le Rock's system with the brand burgundy. Cream, centred logo, framed menu card.", theme: "light" },
+  { n: 2, slug: "test2", name: "Belle Époque", tagline: "Cinzel capitals, gold hairlines, a printed carte. Paris 1900.", theme: "light" },
+  { n: 3, slug: "test3", name: "Nuit à Montréal", tagline: "Warm near-black, cream type, gold. The evening out.", theme: "dark" },
+  { n: 4, slug: "test4", name: "Carte Postale", tagline: "Editorial magazine. Cormorant italics, offset collages, numbered captions.", theme: "light" },
+  { n: 5, slug: "test5", name: "Zinc", tagline: "Brutally minimal. One giant wordmark, hairlines, photos left to breathe.", theme: "light" },
+  { n: 6, slug: "test6", name: "Rouge", tagline: "Colour-block poster. Burgundy ground, cream blocks, pure brand.", theme: "dark" },
+  { n: 7, slug: "test7", name: "Terrasse", tagline: "Bright summer in Montréal. Awning stripe, pill buttons, three service moments.", theme: "light" },
+  { n: 8, slug: "test8", name: "Vitrine", tagline: "Split screen. Pinned photo on the left that swaps as you scroll.", theme: "light" },
 ] as const;
