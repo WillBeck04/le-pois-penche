@@ -17,7 +17,7 @@ export default function D3() {
     <main style={{ background: C.bg, color: C.cream, fontFamily: "var(--font-figtree)" }}>
       {/* Full-screen hero */}
       <section style={{ position: "relative", height: "min(100svh, 900px)", minHeight: 620, overflow: "hidden" }}>
-        <div className="plx" data-speed="0.2" style={{ position: "absolute", inset: "-15% 0" }}><Image src={img.barNuit} alt="Le bar le soir" fill priority sizes="100vw" className="img kb" /></div>
+        <div className="plx" data-speed="0.2" style={{ position: "absolute", inset: "-15% 0" }}><Image src={img.barNuit} alt="Le bar le soir" fill priority sizes="100vw" className="img kb" style={{ objectPosition: "60% 40%" }} /></div>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(20,16,14,0.65) 0%, rgba(20,16,14,0) 30%, rgba(20,16,14,0.15) 55%, rgba(20,16,14,0.98) 100%)" }} />
         <header className="rise" style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "30px clamp(20px, 4vw, 56px) 0", zIndex: 2 }}>
           <Image src="/logo/le-pois-penche.png" alt="Le Pois Penché" width={1200} height={253} priority style={{ height: 46, width: "auto", filter: "brightness(0) invert(1) opacity(0.94)" }} />

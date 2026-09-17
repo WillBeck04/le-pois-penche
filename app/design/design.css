@@ -80,15 +80,81 @@
   .lift img { transition: none; }
 }
 
-/* Phone: the directions are desktop-first mockups; below 720px hide the inline nav links (the real site gets a hamburger)
-   and make sure nothing runs past the viewport. */
+/* ===== PHONE (≤ 720px) =====
+   The directions are built desktop-first. Everything below reshapes them for a vertical screen:
+   one column, heroes that show their subject, no sticky split screens, nothing wider than the screen.
+   Attribute selectors match React's inline-style serialization (no space after the colon). */
 @media (max-width: 720px) {
+  html, body { overflow-x: hidden; }
   main { overflow-x: hidden; }
-  main nav a:not(.btn):not([href^="https://www.opentable"]) { display: none; }
-  main nav { justify-content: space-between !important; }
-  main h1 { font-size: clamp(30px, 10vw, 44px) !important; letter-spacing: 0 !important; }
-  main p { font-size: 16px !important; }
-  main .marquee { font-size: 10px !important; }
+
+  /* Nav: logo + one primary button. Inline links are hidden; the real site gets a hamburger. */
+  main nav a:not(.btn) { display: none !important; }
+  main nav { gap: 10px !important; }
+  main header { padding-top: 14px !important; padding-bottom: 14px !important; }
+  main header img { max-height: 40px !important; }
+  main nav .btn { padding: 11px 18px !important; font-size: 11px !important; }
+
+  /* Type scale for a 390px screen */
+  main h1 { font-size: clamp(34px, 10.5vw, 46px) !important; line-height: 1.04 !important; letter-spacing: -0.01em !important; }
+  main h2 { font-size: clamp(25px, 7.4vw, 32px) !important; line-height: 1.12 !important; letter-spacing: -0.005em !important; }
+  main p { font-size: 16px !important; line-height: 1.55 !important; }
+
+  /* Heroes: 3:4 on a phone, never viewport-tall, photo anchored on its subject, no Ken Burns drift */
+  main section[style*="height:min("], main section[style*="height:100svh"], main section[style*="height:calc(100svh"] {
+    height: auto !important; min-height: 0 !important; aspect-ratio: 3 / 4 !important; max-height: 620px !important;
+  }
+  .kb { animation: none !important; }
+  .plx { transform: none !important; }
+
+  /* Hero text pinned to the bottom edge: full width, tighter */
+  main section:has(h1) > div[style*="position:absolute"][style*="bottom:"] { left: 20px !important; right: 20px !important; bottom: 24px !important; gap: 12px !important; padding: 0 !important; max-width: none !important; }
+  main section:has(h1) > div[style*="position:absolute"][style*="bottom:"] p { display: none !important; }
+  main section:has(h1) > div[style*="position:absolute"][style*="bottom:"] .btn { padding: 14px 22px !important; }
+
+  /* Every multi-column grid becomes one column. Product grids keep 2 (their own rule). keep2 = a photo pair. */
+  main [style*="grid-template-columns"]:not(.pg):not(.keep2) { grid-template-columns: 1fr !important; }
+  main .keep2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  /* Section rhythm: the desktop clamps resolve to 64–72px on a phone, too much for a small screen */
+  main section[style*="padding:clamp(72px"], main section[style*="padding:clamp(64px"], main section[style*="padding:clamp(56px"], main div[style*="padding:clamp(72px"] { padding-top: 48px !important; }
+  main section[style*="padding:clamp(80px"], main section[style*="padding:clamp(96px"] { padding-top: 56px !important; }
+  main section[style*="130px"] { padding-bottom: 72px !important; }
+
+  /* Marquee: smaller, clipped to the screen */
+  .marquee { font-size: 10px !important; max-width: 100vw; overflow: hidden !important; }
+  .marquee > div > span { padding: 0 14px !important; }
+
+  /* Split-screen directions: the pinned column becomes a 3:4 photo at the top, content flows underneath */
+  main.d8 { display: flex !important; flex-direction: column !important; }
+  .d8-left { position: relative !important; height: auto !important; aspect-ratio: 3 / 4; max-height: 520px; }
+
+  /* Images: never taller than the screen; portrait photo blocks capped */
   main img { max-width: 100%; }
-  main [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+  main div[style*="min-height:460px"], main div[style*="min-height:480px"], main div[style*="min-height:520px"] { min-height: 0 !important; aspect-ratio: 4 / 3; }
+
+  /* Header row never wraps: logo left, button right */
+  main header { flex-wrap: nowrap !important; }
+
+  /* Nothing may force a line wider than the screen */
+  main [style*="white-space:nowrap"] { white-space: normal !important; }
+
+  /* Photo sections with a card pinned over them (Le Cellier, the founder): on a phone the photo sits on top
+     and the card flows underneath. Heroes (with an h1) keep their overlay. */
+  main section[style*="height:min("]:has(> .plx):has(h2) { height: auto !important; aspect-ratio: auto !important; max-height: none !important; display: flex; flex-direction: column; }
+  main section[style*="height:min("]:has(> .plx):has(h2) > .plx { position: relative !important; inset: auto !important; aspect-ratio: 4 / 3; }
+  main section[style*="height:min("]:has(> .plx):has(h2) > div[style*="inset:0"] { display: none !important; }
+  main section[style*="height:min("]:has(> .plx):has(h2) > div[style*="position:absolute"]:not(.plx) { position: relative !important; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important; transform: none !important; width: auto !important; max-width: none !important; }
+  main section[style*="height:min("]:has(> .plx):has(h2) > div[style*="position:absolute"]:not(.plx):not([style*="background"]) { padding: 32px 20px 8px !important; }
+
+  /* Product grids of five: the orphan sits centred, not left-aligned */
+  .pg[data-n="5"] > :last-child { grid-column: span 2; width: calc(50% - 7px); justify-self: center; }
+
+  /* Big decorative numerals stay inside the screen */
+  main span[aria-hidden="true"][style*="font-size:clamp(72px"] { font-size: 64px !important; right: 12px !important; }
+
+  /* Tall CTA tiles (min-height 300 squares) become compact rows */
+  main a[style*="min-height:300px"] { min-height: 0 !important; gap: 14px !important; padding: 24px !important; }
+  /* Staggered photo pairs line up */
+  main .keep2 > * { margin-top: 0 !important; }
 }

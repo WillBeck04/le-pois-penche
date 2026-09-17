@@ -41,7 +41,7 @@ export default function D6() {
           <p style={{ margin: 0, fontSize: 19, lineHeight: 1.6, color: C.tint }}>{copy.location} Terrasse ouverte au printemps et en été. Le Cellier pour vos événements de 20 à 80 convives.</p>
           <div style={h({ display: "flex", flexDirection: "column", gap: 10, fontSize: 11, fontWeight: 600, letterSpacing: "0.24em", color: C.gold })}>{press.map((p) => <span key={p.source}>{p.source.split(" · ")[0]} · {p.quote}</span>)}</div>
         </div>
-        <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+        <div className="keep2" data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
           {plates.map((p) => <div key={p.name} style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: p.up ? 60 : 0 }}><div className="lift" style={{ position: "relative", aspectRatio: "1" }}><Image src={p.img} alt={p.name} fill sizes="(min-width: 900px) 25vw, 50vw" className="img" /></div><div style={h({ display: "flex", justifyContent: "space-between", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em" })}><span>{p.name}</span><span style={{ color: C.gold }}>{p.price}</span></div></div>)}
         </div>
       </section>

@@ -31,7 +31,7 @@ export default function D1() {
       {/* Hero: textless cross-fade carousel, Le Rock style, with a burgundy caption bar */}
       <section style={{ position: "relative", height: "calc(100svh - 150px)", minHeight: 520, maxHeight: 860, overflow: "hidden", background: C.ink }}>
         <div className="xfade" data-interval="5000" style={{ position: "absolute", inset: 0 }}>
-          {slides.map((s, i) => <div key={s} className={i === 0 ? "on" : ""}><Image src={s} alt="" fill priority={i < 2} loading={i < 2 ? "eager" : "lazy"} sizes="100vw" className={`img ${i === 0 ? "kb" : ""}`} /></div>)}
+          {slides.map((s, i) => <div key={s} className={i === 0 ? "on" : ""}><Image src={s} alt="" fill priority={i < 2} style={{ objectPosition: "center 55%" }} loading={i < 2 ? "eager" : "lazy"} sizes="100vw" className={`img ${i === 0 ? "kb" : ""}`} /></div>)}
         </div>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(27,21,18,0) 60%, rgba(27,21,18,0.55) 100%)" }} />
         <div className="rise-2" style={{ position: "absolute", left: 0, right: 0, bottom: 0, display: "flex", justifyContent: "space-between", alignItems: "flex-end", padding: "0 clamp(20px, 4vw, 48px) clamp(24px, 4vw, 44px)", gap: 24, flexWrap: "wrap", color: C.cream }}>

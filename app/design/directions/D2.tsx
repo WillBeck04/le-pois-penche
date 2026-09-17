@@ -98,7 +98,7 @@ export default function D2() {
       </section>
 
       <section data-stagger className="wrap" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 18, padding: "0 clamp(24px, 8vw, 120px) 110px" }}>
-        {[img.huitres, img.canard, img.salleRouge, img.creme, img.service].map((s) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "4/3", border: `1px solid ${C.gold}`, padding: 5 }}><div style={{ position: "relative", width: "100%", height: "100%" }}><Image src={s} alt="" fill sizes="20vw" className="img" /></div></div>)}
+        {[img.huitres, img.canard, img.salleRouge, img.creme, img.service].map((s) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "4/3", border: `1px solid ${C.gold}`, padding: 5 }}><div style={{ position: "relative", width: "100%", height: "100%" }}><Image src={s} alt="" fill sizes="(max-width: 720px) 50vw, 20vw" className="img" /></div></div>)}
       </section>
 
       <footer style={{ background: C.wine, color: C.cream, padding: "38px clamp(24px, 7vw, 96px)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 16 }}>

@@ -87,7 +87,7 @@ export default function D4() {
         <span style={{ fontSize: 19, fontStyle: "italic", color: C.soft }}>Le Pois Penché · Montréal · {copy.email}</span>
         <span style={{ ...lab, color: C.lab }}>Instagram · Facebook · LinkedIn · Recevez nos nouvelles</span>
       </footer>
-      <style>{`.d4-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start}.d4-row:hover{padding-left:12px}@media(max-width:900px){.d4-grid{display:flex;flex-direction:column;gap:36px}.d4-grid>*{margin-top:0!important;padding-right:0!important}}`}</style>
+      <style>{`.d4-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start}.d4-row:hover{padding-left:12px}@media(max-width:900px){.d4-grid{display:flex;flex-direction:column;gap:36px;align-items:stretch!important}.d4-grid>*{margin-top:0!important;padding-right:0!important}}`}</style>
     </main>
   );
 }

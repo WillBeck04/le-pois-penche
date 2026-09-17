@@ -22,7 +22,7 @@ export default function D7() {
       </header>
 
       <section style={{ position: "relative", height: "min(800px, 84vh)", minHeight: 540, overflow: "hidden" }}>
-        <div className="plx" data-speed="0.16" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.facade} alt="La façade et la terrasse" fill priority sizes="100vw" className="img kb" style={{ objectPosition: "center 40%" }} /></div>
+        <div className="plx" data-speed="0.16" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.facade} alt="La façade et la terrasse" fill priority sizes="100vw" className="img kb" style={{ objectPosition: "center 30%" }} /></div>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(27,21,18,0) 40%, rgba(27,21,18,0.65) 100%)" }} />
         <div style={{ position: "absolute", left: "clamp(20px, 4vw, 56px)", right: "clamp(20px, 4vw, 56px)", bottom: "clamp(28px, 5vw, 64px)", display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "24px 60px", color: C.bg, flexWrap: "wrap" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 860 }}><span className="rise-2" style={h({ fontSize: 12, fontWeight: 600, letterSpacing: "0.28em" })}>Terrasse ouverte · Mille carré doré · depuis 2008</span><h1 className="rise-3" style={h({ margin: 0, fontSize: "clamp(38px, 5.4vw, 76px)", fontWeight: 700, lineHeight: 0.98, letterSpacing: "-0.01em", textWrap: "balance" })}>La brasserie parisienne préférée du centre-ville</h1></div>
@@ -41,8 +41,8 @@ export default function D7() {
         <p style={{ margin: 0, maxWidth: 720, fontSize: 19, lineHeight: 1.6, color: C.soft }}>Fondé en 2008, Le Pois Penché est une institution bien-aimée du Mille carré doré, à quelques pas du métro Peel. Reconnu par Time Out, The Main et OpenTable.</p>
       </section>
 
-      <section data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 4 }}>
-        {[img.soupe, img.chefCrabe, img.canard, img.creme].map((s) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "1" }}><Image src={s} alt="" fill sizes="25vw" className="img" /></div>)}
+      <section data-stagger className="keep2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 4 }}>
+        {[img.soupe, img.chefCrabe, img.canard, img.creme].map((s) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "1" }}><Image src={s} alt="" fill sizes="(max-width: 720px) 50vw, 25vw" className="img" /></div>)}
       </section>
 
       <section data-reveal style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>

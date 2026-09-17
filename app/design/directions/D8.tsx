@@ -40,8 +40,8 @@ export default function D8() {
         <section data-index="1" data-reveal style={{ display: "flex", flexDirection: "column", padding: "0 clamp(20px, 4vw, 56px) 130px" }}>
           <span style={{ ...eye, paddingBottom: 20 }}>02 · Nos menus</span>
           <div data-stagger>{menus.map((m, i) => <div key={m.name} style={{ ...row, borderBottom: i === menus.length - 1 ? `1px solid ${C.line}` : "none" }}><span style={h({ fontSize: 26, fontWeight: 600 })}>{m.name}</span><span style={{ fontSize: 15, color: "#5C4F47" }}>{m.whenShort}</span></div>)}</div>
-          <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16, paddingTop: 44 }}>
-            {[{ s: img.soupe, n: "Soupe à l'oignon gratinée", p: "21" }, { s: img.cote, n: "Côte de bœuf 32 oz", p: "190" }, { s: img.canard, n: "Canard confit", p: "42" }, { s: img.creme, n: "Crème brûlée", p: "14" }].map((x) => <div key={x.s} style={{ display: "flex", flexDirection: "column", gap: 8 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={x.s} alt={x.n} fill sizes="25vw" className="img" /></div><div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}><span>{x.n}</span><span style={{ color: C.gold }}>{x.p}</span></div></div>)}
+          <div className="keep2" data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16, paddingTop: 44 }}>
+            {[{ s: img.soupe, n: "Soupe à l'oignon gratinée", p: "21" }, { s: img.cote, n: "Côte de bœuf 32 oz", p: "190" }, { s: img.canard, n: "Canard confit", p: "42" }, { s: img.creme, n: "Crème brûlée", p: "14" }].map((x) => <div key={x.s} style={{ display: "flex", flexDirection: "column", gap: 8 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={x.s} alt={x.n} fill sizes="(max-width: 720px) 50vw, 25vw" className="img" /></div><div style={{ display: "flex", justifyContent: "space-between", fontSize: 14 }}><span>{x.n}</span><span style={{ color: C.gold }}>{x.p}</span></div></div>)}
           </div>
         </section>
 
