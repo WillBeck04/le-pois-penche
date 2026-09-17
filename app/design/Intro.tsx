@@ -59,12 +59,12 @@ export default function Intro({ palette }: { palette: Palette }) {
   const leaving = phase === "leaving";
   return (
     <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 200, background: palette.bg, display: "flex", alignItems: "center", justifyContent: "center", transform: leaving ? "translateY(-100%)" : "none", transition: "transform 0.8s cubic-bezier(.76,0,.24,1)", cursor: "pointer" }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, opacity: leaving ? 0 : 1, transition: "opacity 0.5s" }}>
-        <span style={{ fontFamily: palette.font, fontSize: "clamp(34px, 6vw, 84px)", fontWeight: 600, letterSpacing: "0.02em", color: palette.ink, lineHeight: 1, whiteSpace: "pre", display: "inline-flex", alignItems: "baseline" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 22, width: "100%", padding: "0 28px", boxSizing: "border-box", textAlign: "center", opacity: leaving ? 0 : 1, transition: "opacity 0.5s" }}>
+        <span style={{ fontFamily: palette.font, fontSize: "clamp(26px, 8vw, 84px)", fontWeight: 600, letterSpacing: "0.02em", color: palette.ink, lineHeight: 1, whiteSpace: "pre", display: "inline-flex", alignItems: "baseline" }}>
           {TEXT.slice(0, count)}
           <span style={{ display: "inline-block", width: "0.06em", height: "0.95em", marginLeft: "0.08em", background: palette.accent, transform: "translateY(0.1em)", animation: "lpp-blink 0.9s steps(1) infinite" }} />
         </span>
-        <span style={{ fontFamily: "var(--font-montserrat)", textTransform: "uppercase", fontSize: 11, fontWeight: 600, letterSpacing: "0.34em", color: palette.accent, opacity: count >= TEXT.length ? 1 : 0, transition: "opacity 0.6s" }}>Brasserie parisienne · Montréal · depuis 2008</span>
+        <span style={{ fontFamily: "var(--font-montserrat)", textTransform: "uppercase", fontSize: 11, fontWeight: 600, letterSpacing: "0.34em", lineHeight: 1.9, maxWidth: 340, color: palette.accent, opacity: count >= TEXT.length ? 1 : 0, transition: "opacity 0.6s" }}>Brasserie parisienne · Montréal · depuis 2008</span>
       </div>
       <style>{`@keyframes lpp-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }`}</style>
     </div>
