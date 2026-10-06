@@ -1,33 +1,39 @@
+import Image from "next/image";
 import { content } from "@/lib/content";
-import { pageHeroes } from "@/lib/images";
+import { gallery, pageHeroes } from "@/lib/images";
 import { site } from "@/lib/site";
 import type { Lang } from "@/lib/routes";
 import Hero from "@/components/Hero";
 import Button from "@/components/Button";
-import Reveal from "@/components/Reveal";
+import FramedSection from "@/components/FramedSection";
 
 export default function CareersPage({ lang }: { lang: Lang }) {
   const t = content[lang].careers;
+  const side = gallery.find((p) => p.src.includes("07-maitre-d-hotel"))!;
   return (
     <>
-      <Hero photo={pageHeroes.careers} lang={lang} title={t.title} />
-      <Reveal>
-        <section className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-          <div className="text-center">
-            <Button href={`mailto:${site.careersEmail}?subject=${encodeURIComponent(t.title)}`} variant="solid">{t.sendCv}</Button>
-          </div>
-          <h2 className="mt-16 text-2xl md:text-3xl text-wine text-center">{t.reasonsTitle}</h2>
-          <ol className="mt-8 space-y-4 text-lg leading-relaxed">
-            {t.reasons.map((r) => (
-              <li key={r} className="flex gap-4">
-                <span aria-hidden="true" className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+      <Hero photo={pageHeroes.careers} lang={lang} title={t.title} eyebrow={site.name} />
+
+      <div data-reveal className="mx-auto max-w-5xl px-4 py-16 sm:px-8 md:py-24">
+        <FramedSection title={t.reasonsTitle}>
+          <ol data-stagger className="mx-auto max-w-3xl space-y-5">
+            {t.reasons.map((r, i) => (
+              <li key={r} className="flex gap-5 text-[17px] leading-relaxed md:text-lg">
+                <span className="shrink-0 font-heading text-sm font-semibold text-gold">0{i + 1}</span>
                 <span>{r}</span>
               </li>
             ))}
           </ol>
-          <p className="mt-10 text-center font-heading text-wine uppercase text-base tracking-[0.14em]">{t.closing}</p>
-        </section>
-      </Reveal>
+          <div className="mt-10 flex flex-col items-center gap-5 text-center">
+            <Button href={`mailto:${site.careersEmail}?subject=${encodeURIComponent(t.title)}`} variant="solid">{t.sendCv}</Button>
+            <p className="font-heading text-sm font-semibold uppercase tracking-[0.16em] text-wine">{t.closing}</p>
+          </div>
+        </FramedSection>
+      </div>
+
+      <div data-reveal className="lift relative aspect-[16/9] max-h-[70vh] w-full">
+        <Image src={side.src} alt={side.alt[lang]} fill sizes="100vw" className="object-cover" />
+      </div>
     </>
   );
 }

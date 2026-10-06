@@ -4,13 +4,14 @@ import type { ReactNode } from "react";
 type Variant = "outline" | "solid" | "inverse";
 
 const styles: Record<Variant, string> = {
-  outline: "border-2 border-wine text-wine hover:bg-wine hover:text-cream",
+  outline: "border-2 border-wine text-ink hover:bg-wine hover:text-cream",
   solid: "border-2 border-wine bg-wine text-cream hover:bg-wine-deep hover:border-wine-deep",
   inverse: "border-2 border-cream text-cream hover:bg-cream hover:text-wine",
 };
 
+// Design 1 button: 12px Montserrat capitals, wide tracking, 2px square-ish border
 const base =
-  "inline-flex items-center justify-center rounded-[2px] px-7 py-3.5 font-heading text-xs md:text-sm font-semibold uppercase tracking-[0.16em] transition-colors duration-200";
+  "btn inline-flex items-center justify-center text-center rounded-[2px] px-[30px] py-[15px] font-heading text-xs font-semibold uppercase tracking-[0.18em]";
 
 export default function Button({
   href,

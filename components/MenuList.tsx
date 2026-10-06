@@ -10,7 +10,7 @@ function Price({ value, lang }: { value?: string | { fr: string; en: string }; l
 
 export default function MenuList({ menu, lang }: { menu: Menu; lang: Lang }) {
   return (
-    <div className="space-y-14">
+    <div className="space-y-16">
       {menu.sections.map((section) => (
         <FramedSection key={section.title[lang]} title={section.title[lang]}>
           {section.note && <p className="text-center text-ink-soft italic mb-6">{section.note[lang]}</p>}

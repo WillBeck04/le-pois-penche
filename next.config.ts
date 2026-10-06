@@ -10,14 +10,6 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
     deviceSizes: [640, 768, 1024, 1280, 1536, 1920, 2560],
   },
-  async rewrites() {
-    return [
-      // Short links for the design directions: /test1 … /test8 (and /design1 … /design8)
-      { source: "/test:n(\\d)", destination: "/design/:n" },
-      { source: "/design:n(\\d)", destination: "/design/:n" },
-      { source: "/test", destination: "/design" },
-    ];
-  },
   async redirects() {
     return [
       // French is the default language

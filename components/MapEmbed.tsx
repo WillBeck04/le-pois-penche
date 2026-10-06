@@ -1,8 +1,9 @@
 import { site } from "@/lib/site";
 
-export default function MapEmbed({ title }: { title: string }) {
+/** Google Maps embed (no API key). Fills its parent; give the parent a height. */
+export default function MapEmbed({ title, className = "" }: { title: string; className?: string }) {
   return (
-    <div className="relative w-full aspect-[4/3] md:aspect-video overflow-hidden rounded-[2px] border border-line bg-cream-deep">
+    <div className={`relative w-full overflow-hidden bg-cream-deep ${className}`}>
       <iframe
         title={title}
         src={site.links.mapEmbed}

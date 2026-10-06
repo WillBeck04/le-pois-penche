@@ -33,21 +33,21 @@ export default function GalleryGrid({ photos, lang, labels }: { photos: Photo[];
 
   return (
     <>
-      <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+      <ul data-stagger className="grid grid-cols-2 gap-1.5 md:grid-cols-4">
         {photos.map((photo, i) => (
-          <li key={photo.src} className={i % 7 === 0 ? "col-span-2 md:col-span-2" : ""}>
+          <li key={photo.src} className={i === 0 ? "col-span-2 md:row-span-2" : ""}>
             <button
               type="button"
               onClick={() => setCurrent(i)}
               aria-label={`${labels.open}: ${photo.alt[lang]}`}
-              className="group relative block w-full aspect-[16/10] overflow-hidden bg-cream-deep"
+              className={`lift relative block w-full overflow-hidden bg-cream-deep ${i === 0 ? "aspect-[4/3] md:aspect-auto md:h-full" : "aspect-[4/3]"}`}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt[lang]}
                 fill
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+                sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
+                className="object-cover object-center"
               />
             </button>
           </li>

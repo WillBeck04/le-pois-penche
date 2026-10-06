@@ -15,6 +15,8 @@ import StickyBar from "@/components/StickyBar";
 import Announcement from "@/components/Announcement";
 import ConsentBanner from "@/components/ConsentBanner";
 import JsonLd from "@/components/JsonLd";
+import Motion from "@/components/Motion";
+import Intro from "@/components/Intro";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-montserrat", display: "swap" });
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-figtree", display: "swap" });
@@ -36,7 +38,8 @@ export default async function LangLayout({ children, params }: { children: React
 
   return (
     <html lang={lang === "fr" ? "fr-CA" : "en-CA"} className={`${montserrat.variable} ${figtree.variable}`}>
-      <body className="min-h-screen flex flex-col pb-16">
+      <body className="min-h-screen flex flex-col">
+        <Intro tagline={t.home.introTagline} />
         <JsonLd data={restaurantSchema(lang)} />
         <AddressStrip />
         <Header lang={lang} />
@@ -45,6 +48,7 @@ export default async function LangLayout({ children, params }: { children: React
         <StickyBar lang={lang} />
         <Announcement lang={lang} />
         <ConsentBanner text={t.common.consent} gaId={site.analytics.ga4} />
+        <Motion />
       </body>
     </html>
   );

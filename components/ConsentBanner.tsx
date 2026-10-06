@@ -34,7 +34,7 @@ export default function ConsentBanner({ text, gaId }: { text: { text: string; ac
         </>
       )}
       {ready && choice === "unknown" && (
-        <div role="region" aria-label="Cookies" className="fixed bottom-16 inset-x-3 sm:inset-x-auto sm:right-4 sm:max-w-sm z-40 rounded-[2px] border border-line bg-cream shadow-lg p-4 text-sm">
+        <div role="region" aria-label="Cookies" className="fixed bottom-[68px] inset-x-3 sm:inset-x-auto sm:right-4 sm:max-w-sm z-40 rounded-[2px] border border-line bg-cream shadow-lg p-4 text-sm">
           <p className="text-ink-soft">{text.text}</p>
           <div className="mt-3 flex gap-3">
             <button type="button" onClick={() => decide("accepted")} className="rounded-[2px] bg-wine px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.14em] text-cream hover:bg-wine-deep">

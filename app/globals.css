@@ -32,6 +32,7 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+html, body { overflow-x: clip; }
 body {
   background: var(--color-cream);
   color: var(--color-ink);
@@ -75,3 +76,60 @@ h1, h2, h3, h4 {
 /* Native details marker off; we draw our own */
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
+
+/* ===== Motion (Design 1 · Grande Brasserie) =====
+   Content is always visible in the HTML. Components/Motion.tsx adds the "motion" class to <html>
+   once JS runs, and only then are [data-reveal] / [data-stagger] blocks hidden until they scroll into view. */
+.motion [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+.motion [data-reveal].in { opacity: 1; transform: none; }
+.motion [data-stagger] > * { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.motion [data-stagger].in > * { opacity: 1; transform: none; }
+.motion [data-stagger].in > *:nth-child(2) { transition-delay: 0.1s; }
+.motion [data-stagger].in > *:nth-child(3) { transition-delay: 0.2s; }
+.motion [data-stagger].in > *:nth-child(4) { transition-delay: 0.3s; }
+.motion [data-stagger].in > *:nth-child(5) { transition-delay: 0.4s; }
+.motion [data-stagger].in > *:nth-child(6) { transition-delay: 0.5s; }
+
+/* Hero caption entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) 0.15s both; }
+
+/* Ken Burns: slow settle on hero photos */
+@keyframes kb { from { transform: scale(1.08); } to { transform: scale(1); } }
+.kb { animation: kb 14s ease-out both; }
+
+/* Photo hover zoom */
+.lift { overflow: hidden; }
+.lift img { transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.lift:hover img { transform: scale(1.05); }
+
+/* Press marquee */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee > div { display: inline-flex; animation: marquee 40s linear infinite; }
+.marquee:hover > div { animation-play-state: paused; }
+
+/* Parallax: Motion.tsx sets --py on scroll */
+.plx { will-change: transform; transform: translateY(calc(var(--py, 0) * 1px)); }
+
+/* Underline that draws in on hover */
+.ul { position: relative; text-decoration: none; }
+.ul::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+.ul:hover::after, .ul[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+
+/* Buttons lift a pixel on hover */
+.btn { transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s; }
+.btn:hover { transform: translateY(-1px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion [data-reveal], .motion [data-stagger] > * { opacity: 1; transform: none; transition: none; }
+  .rise, .kb, .marquee > div { animation: none; }
+  .plx { transform: none; }
+  .lift img { transition: none; }
+}
+
+@media (max-width: 720px) {
+  .kb { animation: none; }
+  .plx { transform: none; }
+  .marquee { font-size: 10px; }
+}

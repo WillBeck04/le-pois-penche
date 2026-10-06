@@ -56,3 +56,39 @@ export const gallery: Photo[] = [
   { src: "/images/gallery/17-moules-frites.jpg", width: W, height: H, alt: { fr: "Moules frites, classique de brasserie au Pois Penché, Montréal", en: "Moules frites, a brasserie classic at Le Pois Penché, Montreal" } },
   { src: "/images/gallery/18-creme-brulee.jpg", width: W, height: H, alt: { fr: "Crème brûlée à la vanille de Bourbon au Pois Penché, brasserie française à Montréal", en: "Bourbon vanilla crème brûlée at Le Pois Penché, French brasserie in Montreal" } },
 ];
+
+// Home page (Design 1 · Grande Brasserie). Picked from the photos above so the alt text stays in one place.
+const pick = (list: Photo[], file: string) => list.find((p) => p.src.endsWith(file))!;
+
+/** Hero carousel, in order. The façade/dining room leads. */
+export const homeHero: Photo[] = [
+  pick(homeCarousel, "carousel-01-salle.jpg"),
+  pageHeroes.privateDining2,
+  pick(gallery, "04-chef-josserand-crabe.jpg"),
+  pick(homeCarousel, "carousel-06-bar.jpg"),
+  pick(gallery, "08-poisson-table.jpg"),
+];
+
+/** Three-photo band under the press quotes */
+export const homeBand: Photo[] = [pick(gallery, "04-chef-josserand-crabe.jpg"), pick(homeCarousel, "carousel-02-salle.jpg"), pick(gallery, "09-short-rib-pass.jpg")];
+
+/** Six square photos above the footer */
+export const homeStrip: Photo[] = [
+  pick(homeCarousel, "carousel-05-huitres.jpg"),
+  pick(homeCarousel, "carousel-03-soupe-a-l-oignon.jpg"),
+  pick(gallery, "10-tartare-saumon.jpg"),
+  homeBlurbs[3],
+  pick(gallery, "17-moules-frites.jpg"),
+  pick(gallery, "18-creme-brulee.jpg"),
+];
+
+export const homeTerrace = pick(gallery, "14-terrasse.jpg");
+export const homeCellier = pageHeroes.privateDining;
+
+/** Photos for the signature dishes on the home page, by menu item */
+export const dishPhotos = {
+  soupe: pick(homeCarousel, "carousel-03-soupe-a-l-oignon.jpg"),
+  parisien: pick(gallery, "13-raw-bar.jpg"),
+  canard: pick(homeCarousel, "carousel-04-canard-confit.jpg"),
+  cote: pick(gallery, "03-cote-de-boeuf.jpg"),
+};

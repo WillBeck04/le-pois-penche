@@ -39,6 +39,7 @@ const fr = {
     directions: "Itinéraire",
     download: "Téléchargez",
     seeMenus: "Voir les menus",
+    since: "depuis",
     otherMenus: "Nos autres menus",
     backHome: "Retour à l'accueil",
     notFound: "Cette page n'existe pas.",
@@ -80,6 +81,35 @@ const fr = {
     blurb2:
       "Nous vous accueillons le midi dès 11 h 30 du mardi au vendredi, tous les soirs dès 17 h, et pour le brunch la fin de semaine dès 10 h 30. Notre terrasse est ouverte au printemps et en été, si la météo le permet. Vous nous trouverez à l'angle du boulevard De Maisonneuve Ouest et de la rue Drummond, à quelques pas de la station de métro Peel et de toutes les attractions du centre-ville.",
     menusTitle: "Nos menus",
+    // Caption bar along the bottom of the photo carousel
+    captionLeft: "Brasserie parisienne · Mille carré doré · depuis 2008",
+    captionRight: "Lunch · Souper · Brunch · Terrasse",
+    reserveTable: "Réservez une table",
+    // Press quotes in the scrolling band
+    press: [
+      { quote: "Parmi les meilleurs restaurants français de Montréal", source: "Time Out Worldwide · Tourisme Montréal" },
+      { quote: "L'une des meilleures adresses pour un steak à Montréal", source: "The Main" },
+      { quote: "Parmi les brunchs les plus populaires au Canada", source: "OpenTable" },
+    ],
+    dishesTitle: "Les incontournables",
+    // Short description under each menu in the "Nos menus" frame. Hours come from lib/menus.ts.
+    menuBlurbs: {
+      lunch: "Plats du jour, soupe à l'oignon gratinée, tartares et onglet à l'échalote.",
+      dinner: "Plateaux de fruits de mer, canard confit, bouillabaisse, côte de bœuf vieillie 30 jours.",
+      brunch: "Bénédictines au saumon fumé maison, croque-madame, pancakes « Papa Joss », bar à huîtres.",
+      dineEarly: "Entrée au choix, puis canard confit, moules frites ou cavatelli maison.",
+      desserts: "Crème brûlée flambée au Grand Marnier, profiteroles, île flottante, glaces maison.",
+    },
+    dessertsWhen: "Midi et soir",
+    cellierEyebrow: "Événements privés · Traiteur",
+    cellierTitle: "Le Cellier, de 20 à 80 convives. Le restaurant entier, jusqu'à 120.",
+    cellier:
+      "L'un des meilleurs lieux du centre-ville pour vos réunions d'affaires privées et vos célébrations. Notre traiteur français se déplace aussi chez vous, au bureau ou ailleurs.",
+    cellierCatering: "Service traiteur",
+    location:
+      "À l'angle de De Maisonneuve Ouest et de Drummond, à quelques pas du métro Peel. Valet et stationnement à l'hôtel Le Mount Stephen. Terrasse au printemps et en été.",
+    terraceAlt: "La terrasse d'été du Pois Penché sur le boulevard De Maisonneuve, Montréal",
+    introTagline: "Brasserie parisienne · Montréal · depuis 2008",
   },
 
   hours: {
@@ -98,6 +128,7 @@ const fr = {
 
   story: {
     title: "Notre histoire",
+    pullQuote: "Une ambassade montréalaise de la joie de vivre à la française.",
     paragraphs: [
       "Le Pois Penché est l'accomplissement du rêve du restaurateur Imad Nabwani : partager les plaisirs de la gastronomie française qui l'ont enchanté dans sa jeunesse à Paris.",
       "Après s'être installé à Montréal dans les années 1990, Imad a fait carrière dans quelques-uns des restaurants les plus réputés de la ville. En 2011, il a quitté son poste, a fait l'acquisition du Pois Penché et s'est consacré entièrement à en faire une ambassade montréalaise de la joie de vivre à la française et des plaisirs de la table.",
@@ -110,6 +141,7 @@ const fr = {
 
   privateDining: {
     title: "Événements privés",
+    headline: "Le Cellier, de 20 à 80 convives. Le restaurant entier, jusqu'à 120.",
     intro:
       "Le Pois Penché est l'un des meilleurs lieux du centre-ville de Montréal pour accueillir vos réunions d'affaires privées et vos célébrations. Vous pouvez réserver Le Cellier, notre salle de banquet pouvant accueillir de 20 à 80 convives, ou l'ensemble de notre restaurant, pour un maximum de 120 convives.",
     brochure: "Téléchargez notre brochure",
@@ -120,6 +152,7 @@ const fr = {
 
   catering: {
     title: "Traiteur",
+    headline: "Le traiteur français par excellence à Montréal",
     intro:
       "Nous sommes le traiteur français par excellence à Montréal. Veuillez nous contacter pour vos réunions d'affaires ou célébrations de toute taille, chez vous, au bureau, ou ailleurs. Il nous fera plaisir d'y amener notre gastronomie française raffinée et notre hospitalité chaleureuse au grand bonheur de vos invités.",
     menuPdf: "Consultez notre menu traiteur (PDF)",
@@ -183,6 +216,7 @@ const fr = {
 
   faq: {
     title: "FAQ",
+    heading: "Questions fréquentes",
     items: [
       {
         q: "Que faut-il savoir sur Le Pois Penché, restaurant français du centre-ville de Montréal ?",
@@ -251,6 +285,7 @@ const en: Content = {
     directions: "Directions",
     download: "Download",
     seeMenus: "See the menus",
+    since: "since",
     otherMenus: "Our other menus",
     backHome: "Back to home",
     notFound: "This page does not exist.",
@@ -291,6 +326,32 @@ const en: Content = {
     blurb2:
       "We serve lunch from 11:30 a.m., Tuesday through Friday, dinner every evening from 5 p.m., and weekend brunch from 10:30 a.m. Our sidewalk terrace is open in spring and summer, weather permitting. You will find us at the corner of De Maisonneuve Boulevard West and Drummond Street, just steps from Peel metro station and all downtown attractions.",
     menusTitle: "Our menus",
+    captionLeft: "Parisian brasserie · Golden Square Mile · since 2008",
+    captionRight: "Lunch · Dinner · Brunch · Terrace",
+    reserveTable: "Reserve a table",
+    press: [
+      { quote: "Among Montreal's best French restaurants", source: "Time Out Worldwide · Tourisme Montréal" },
+      { quote: "One of the best places for steak in Montreal", source: "The Main" },
+      { quote: "Among Canada's most popular brunches", source: "OpenTable" },
+    ],
+    dishesTitle: "The classics",
+    menuBlurbs: {
+      lunch: "Daily specials, gratinéed onion soup, tartares and hanger steak with shallots.",
+      dinner: "Seafood platters, duck confit, bouillabaisse, 30-day dry-aged prime rib.",
+      brunch: "House-smoked salmon Benedict, croque-madame, \"Papa Joss\" pancakes, raw bar.",
+      dineEarly: "Your choice of starter, then duck confit, moules frites or house-made cavatelli.",
+      desserts: "Crème brûlée flambéed with Grand Marnier, profiteroles, île flottante, house-made ice cream.",
+    },
+    dessertsWhen: "Lunch and dinner",
+    cellierEyebrow: "Private dining · Catering",
+    cellierTitle: "Le Cellier, for 20 to 80 guests. The whole restaurant, up to 120.",
+    cellier:
+      "One of downtown Montreal's best venues for private business meetings and celebrations. Our French catering also comes to you, at home, at the office or elsewhere.",
+    cellierCatering: "Catering",
+    location:
+      "At the corner of De Maisonneuve West and Drummond, steps from Peel metro. Valet and parking at hotel Le Mount Stephen. Terrace open in spring and summer.",
+    terraceAlt: "The summer terrace at Le Pois Penché on De Maisonneuve Boulevard, Montreal",
+    introTagline: "Parisian brasserie · Montréal · since 2008",
   },
 
   hours: {
@@ -308,6 +369,7 @@ const en: Content = {
 
   story: {
     title: "Our Story",
+    pullQuote: "A Montreal embassy of French joie de vivre.",
     paragraphs: [
       "Le Pois Penché is the fulfilment of restaurateur Imad Nabwani's desire to share the pleasures of French gastronomy, which enchanted him as a young man in Paris.",
       "After relocating to Montreal in the 1990s, Imad set about building a career in some of the city's most celebrated restaurants. In 2011, he left his position, acquired Le Pois Penché, and devoted himself entirely to transforming it into a Montreal embassy of French joie de vivre and culinary delights.",
@@ -320,6 +382,7 @@ const en: Content = {
 
   privateDining: {
     title: "Private Dining",
+    headline: "Le Cellier, for 20 to 80 guests. The whole restaurant, up to 120.",
     intro:
       "Le Pois Penché is one of downtown Montreal's best venues to host your private business meetings and celebrations. You may reserve Le Cellier, our banquet room for 20 to 80 guests, or our entire restaurant for up to 120 guests.",
     brochure: "Download our brochure",
@@ -330,6 +393,7 @@ const en: Content = {
 
   catering: {
     title: "Catering",
+    headline: "Montreal's premier French caterer",
     intro:
       "We are Montreal's premier French caterer. Please contact us for your business events or parties of all sizes, at your home, your office, or elsewhere. We'll be delighted to bring our refined French gastronomy and warm hospitality for the pleasure of your guests.",
     menuPdf: "See our catering menu (PDF)",
@@ -393,6 +457,7 @@ const en: Content = {
 
   faq: {
     title: "FAQ",
+    heading: "Frequently asked questions",
     items: [
       {
         q: "What should I know about Le Pois Penché, a French restaurant in downtown Montreal?",

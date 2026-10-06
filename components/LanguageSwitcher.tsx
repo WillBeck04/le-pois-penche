@@ -14,7 +14,7 @@ export default function LanguageSwitcher({ lang }: { lang: Lang }) {
       href={alternateHref(lang, pathname)}
       hrefLang={lang === "fr" ? "en-CA" : "fr-CA"}
       aria-label={t.switchLang}
-      className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-ink hover:text-wine transition-colors"
+      className="ul font-heading text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:text-wine transition-colors"
     >
       {t.switchLangShort}
     </Link>

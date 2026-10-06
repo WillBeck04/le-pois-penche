@@ -14,8 +14,8 @@ export default function MenuNav({ lang, current }: { lang: Lang; current?: MenuK
             key={item.key}
             href={href(lang, item.key)}
             aria-current={active ? "page" : undefined}
-            className={`font-heading text-xs md:text-sm font-semibold uppercase tracking-[0.16em] py-2 border-b-2 transition-colors ${
-              active ? "text-wine border-wine" : "text-ink border-transparent hover:text-wine"
+            className={`ul font-heading text-xs font-semibold uppercase tracking-[0.18em] py-1 transition-colors ${
+              active ? "text-wine" : "text-ink hover:text-wine"
             }`}
           >
             {item.label}

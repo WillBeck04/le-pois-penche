@@ -16,11 +16,11 @@ export default function NavPanel({ lang, open, onClose }: { lang: Lang; open: bo
     <nav
       id="site-nav"
       aria-hidden={!open}
-      className={`fixed inset-x-0 top-0 bottom-0 z-30 bg-cream overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(.77,0,.175,1)] ${
+      className={`fixed inset-x-0 top-0 bottom-0 z-30 bg-cream lg:hidden overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(.77,0,.175,1)] ${
         open ? "translate-y-0" : "-translate-y-full pointer-events-none"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 pt-28 md:pt-36 pb-28 grid gap-12 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.2fr_1fr_0.8fr]">
+      <div className="mx-auto max-w-7xl px-6 pt-28 pb-28 grid gap-12 md:grid-cols-[1fr_1fr] lg:grid-cols-[1.2fr_1fr_0.8fr]">
         {/* Menus group */}
         <div>
           <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-4">{t.nav.menus}</p>
