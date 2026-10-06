@@ -37,9 +37,9 @@ module.exports = {
       priority: path === "/fr" || path === "/en" ? 1.0 : path.includes("menu") || path.includes("brunch") || path.includes("dine") || path.includes("soupez") ? 0.9 : 0.7,
       lastmod: new Date().toISOString(),
       alternateRefs: [
-        { href: `${siteUrl}${fr}`, hreflang: "fr-CA" },
-        { href: `${siteUrl}${en}`, hreflang: "en-CA" },
-        { href: `${siteUrl}${fr}`, hreflang: "x-default" },
+        { href: `${siteUrl}${fr}`, hreflang: "fr-CA", hrefIsAbsolute: true },
+        { href: `${siteUrl}${en}`, hreflang: "en-CA", hrefIsAbsolute: true },
+        { href: `${siteUrl}${fr}`, hreflang: "x-default", hrefIsAbsolute: true },
       ],
     };
   },
