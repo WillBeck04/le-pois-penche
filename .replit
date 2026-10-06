@@ -1,4 +1,8 @@
-run = "npm start"
+# Replit config. Import the GitHub repo and press Run; Deploy uses the [deployment] block.
+# Run (workspace preview, used by Replit Agent): dev server with live reload.
+# Deploy (the public site): clean install, production build (also writes sitemap.xml + robots.txt), then next start.
+# Do not set NODE_ENV=production here: npm would skip devDependencies (Tailwind, TypeScript) and the build would fail.
+run = "npm install && npm run dev -- -p 3000 -H 0.0.0.0"
 entrypoint = "app/[lang]/page.tsx"
 modules = ["nodejs-20"]
 
@@ -13,6 +17,3 @@ deploymentTarget = "autoscale"
 [[ports]]
 localPort = 3000
 externalPort = 80
-
-[env]
-NODE_ENV = "production"

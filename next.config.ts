@@ -12,9 +12,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // French is the default language
-      { source: "/", has: [{ type: "query", key: "lang", value: "en" }], destination: "/en", permanent: false },
-      { source: "/", destination: "/fr", permanent: false },
+      // The home page (/ -> /fr, /?lang=en -> /en, old /?p=123 links) is handled in proxy.ts
       // Old sitemap files from WordPress
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/:name-sitemap.xml", destination: "/sitemap.xml", permanent: true },
